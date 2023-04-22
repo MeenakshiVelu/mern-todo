@@ -24,12 +24,12 @@ app.get("*", (req,res)=>{
     res.sendFile(path.join(__dirname, "./client/build/index.html"))
 })
 
-
+const PORT = 8080 || process.env.PORT
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
         //listen fo requests
-        app.listen(process.env.PORT, () => {
-            console.log("Connected to db and listeneing on port 4000")        
+        app.listen(PORT, () => {
+            console.log("Connected to db and listeneing on port 8080")        
         })
 
     })
